@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from "next/image"
 import { useState } from 'react'
 
-import logo from '../public/assets/logo.png'
+import logo from '@/public/logo.png'
 
 import {
   Dialog,
@@ -21,54 +21,49 @@ import {
   XMarkIcon,
   ChevronDownIcon,
   ChevronUpIcon,
-  EnvelopeIcon,
-  PrinterIcon,
-  ScissorsIcon,
-  ComputerDesktopIcon,
-  TruckIcon,
   PaperClipIcon,
 } from '@heroicons/react/24/outline'
 
 const headerMenu = [
   {
-    name: 'Printing',
-    description: 'High-quality printing solutions for all your needs',
-    href: '/printing',
-    icon: PrinterIcon,
-  },
-  {
-    name: 'Finishing',
-    description: 'Professional binding, laminating, and more',
-    href: '/finishing',
-    icon: ScissorsIcon,
-  },
-  {
-    name: 'Large Format',
-    description: 'Eye-catching banners, posters, and signage',
-    href: '/large-format',
+    name: 'Option 1',
+    description: 'Description about this option...',
+    href: '/option',
     icon: PaperClipIcon,
   },
   {
-    name: 'Preparation',
-    description: 'Design, setup, and proofing to ensure flawless results',
-    href: '/preparation',
-    icon: ComputerDesktopIcon,
+    name: 'Option 2',
+    description: 'Description about this option...',
+    href: '/option',
+    icon: PaperClipIcon,
   },
   {
-    name: 'Mailing',
-    description: 'Streamlined mailing services to reach your audience',
-    href: '/mailing',
-    icon: EnvelopeIcon,
+    name: 'Option 3',
+    description: 'Description about this option...',
+    href: '/option',
+    icon: PaperClipIcon,
   },
   {
-    name: 'Delivery',
-    description: 'Fast and reliable delivery to your home or business',
-    href: '/delivery',
-    icon: TruckIcon,
+    name: 'Option 4',
+    description: 'Description about this option...',
+    href: '/option',
+    icon: PaperClipIcon,
+  },
+  {
+    name: 'Option 5',
+    description: 'Description about this option...',
+    href: '/option',
+    icon: PaperClipIcon,
+  },
+  {
+    name: 'Option 6',
+    description: 'Description about this option...',
+    href: '/option',
+    icon: PaperClipIcon,
   },
 ]
 
-export default function Header() {
+export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -108,8 +103,8 @@ export default function Header() {
           <Popover className="relative">
             {({ open }) => (
               <>
-                <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-zinc-900">
-                  Products & Services
+                <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-zinc-900 cursor-pointer outline-transparent">
+                  Options
                   {open ? (
                     <ChevronUpIcon aria-hidden="true" className="size-5 flex-none text-zinc-400" />
                   ) : (
@@ -119,7 +114,7 @@ export default function Header() {
 
                 <PopoverPanel
                   transition
-                  className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                  className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-leave:duration-150 data-enter:ease-out data-leave:ease-in"
                 >
                   <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm/6 shadow-lg ring-1 ring-zinc-900/5 lg:max-w-3xl">
                     <div className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 lg:grid-cols-2">
@@ -129,7 +124,7 @@ export default function Header() {
                             <div className="mt-1 flex size-11 flex-none items-center justify-center rounded-lg bg-zinc-50 group-hover:bg-white">
                               <item.icon
                                 aria-hidden="true"
-                                className="size-6 text-zinc-600 group-hover:text-colonialPrimary-600"
+                                className="size-6 text-zinc-600 group-hover:text-primary-600"
                               />
                             </div>
                             <div>
@@ -148,17 +143,17 @@ export default function Header() {
             )}
           </Popover>
 
-          <Link href="/request-a-quote" aria-label="Request a Quote" className="text-sm/6 font-semibold text-zinc-900">
-            Request a Quote
+          <Link href="/form" aria-label="Label" className="text-sm/6 font-semibold text-zinc-900">
+            Form
           </Link>
-          <Link href="/support" aria-label="Get Support" className="text-sm/6 font-semibold text-zinc-900">
-            Support
+          <Link href="/other" aria-label="Label" className="text-sm/6 font-semibold text-zinc-900">
+            Other
           </Link>
         </PopoverGroup>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href={"tel:+18144663380"} aria-label="Call us at +1 814-466-3380" className="rounded-full bg-colonialPrimary-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-colonialPrimary-600">
-            (814) 466-3380
+          <Link href={"tel:+1"} aria-label="Label" className="rounded-full bg-primary-600 px-3.5 py-2 text-sm font-semibold text-white shadow-xs focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">
+            Button
           </Link>
         </div>
       </nav>
@@ -207,7 +202,7 @@ export default function Header() {
                   {({ open }) => (
                     <>
                       <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 px-3 text-base font-semibold text-zinc-900 hover:bg-zinc-50">
-                        Products & Services
+                        Options
                         {open ? (
                           <ChevronUpIcon className="size-5 text-zinc-400" />
                         ) : (
@@ -232,29 +227,29 @@ export default function Header() {
                 </Disclosure>
 
                 <Link
-                  href="/request-a-quote"
-                  aria-label="Request a Quote"
+                  href="/form"
+                  aria-label="Label"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block rounded-lg py-2 px-3 text-base font-semibold text-zinc-900 hover:bg-zinc-50"
                 >
-                  Request a Quote
+                  Form
                 </Link>
                 <Link
-                  href="/support"
-                  aria-label="Get Support"
+                  href="/other"
+                  aria-label="Label"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block rounded-lg py-2 px-3 text-base font-semibold text-zinc-900 hover:bg-zinc-50"
                 >
-                  Support
+                  Other
                 </Link>
               </div>
               <div className="py-6">
                 <Link
-                href="tel:+18144663380" 
-                aria-label="Call us at +1 814-466-3380"
+                href="tel:+1" 
+                aria-label="Label"
                 className="block rounded-lg py-2 px-3 text-base font-semibold text-zinc-900"
                 >
-                  (814) 466-3380
+                  Button
                 </Link>
               </div>
             </div>
